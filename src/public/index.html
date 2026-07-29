@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DocMind - AI Document Q&A</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1>DocMind</h1>
+      <p class="subtitle">Ask questions about your documents</p>
+    </header>
+
+    <div class="main-layout">
+      <aside class="sidebar">
+        <h2>Documents</h2>
+        <form id="upload-form">
+          <input type="file" id="file-input" accept=".pdf,.txt" required>
+          <button type="submit" id="upload-btn">Upload Document</button>
+        </form>
+        <div id="upload-status"></div>
+      </aside>
+
+      <main class="chat-area">
+        <div id="chat-messages" class="chat-messages">
+          <div class="empty-state">
+            Upload a document, then ask a question about it below.
+          </div>
+        </div>
+
+        <form id="chat-form" class="chat-form">
+          <input type="text" id="question-input" placeholder="Ask a question about your document..." required>
+          <button type="submit" id="ask-btn">Ask</button>
+        </form>
+      </main>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

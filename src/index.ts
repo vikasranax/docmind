@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import path from 'path';
 import { connectDB } from './db';
 import uploadRoutes from './routes/upload';
 import askRoutes from './routes/ask';
@@ -12,11 +13,12 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api', uploadRoutes);
 app.use('/api', askRoutes);
 
 app.get('/', (req, res) => {
-  res.json({ message: 'DocMind server is running' });
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 async function startServer() {
